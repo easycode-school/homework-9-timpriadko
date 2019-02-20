@@ -1,0 +1,49 @@
+<table class="ml-3">
+    <thead>
+        <th>User ID</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Age</th>
+        <th>Street</th>
+        <th>Suite</th>
+        <th>City</th>
+        <th>Zipcode</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of (users | sortBy: sortByOption: sortDirection)">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.age }}</td>
+            <td>{{ user.address.street }}</td>
+            <td>{{ user.address.suite }}</td>
+            <td>{{ user.address.city }}</td>
+            <td>{{ user.address.zipcode }}</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<form class="ml-3">
+    <label for="sortBy">Sort by:</label>
+    <select id="sortBy" class="ml-1">
+    <option value=""></option>
+    <option value="suite">Suite</option>
+    <option value="age">Age</option>
+    <option value="zipcode">Zipcode</option>
+  </select>
+    <label for="selectDirection" class="ml-3">Sorting direction</label>
+    <select id="selectDirection" class="ml-1">
+    <option value=""></option>
+    <option value="up">Up</option>
+    <option value="down">Down</option>
+  </select>
+    <button type="button" (click)="sort()" class="btn btn-primary ml-3">Sort</button>
+</form>
+
+<br>
+<br>
+<!-- Time -->
+<div class="ml-5">
+    <h5>Time displayed with pipe:</h5>
+    <p>{{ timestamp | timeSince }}</p>
+</div>
